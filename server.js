@@ -17,7 +17,7 @@ mongoose.connect(dbConfig.url, {
 app.get('/', (req, res) => {
     res.json({"message": "Hello Crud Node Express"});
 });
-app.listen(8080, () => {
+app.listen(8081, () => {
     console.log("Server is listening on port 3000");
 });
 const UserRoute = require('./app/routes/User')
