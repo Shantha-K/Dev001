@@ -14,20 +14,16 @@ mongoose.connect(dbConfig.url, {
     console.log('Could not connect to the database', err);
     process.exit();
 });
-app.get('/', (req, res) => {
-    res.json({"message": "Hello Crud Node Express"});
-});
-app.listen(8081, () => {
-    console.log("Server is listening on port 3000");
-});
 const UserRoute = require('./app/routes/User')
 app.use('/user',UserRoute)
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log(' MongoDB connected'))
-.catch((err) => console.error(' MongoDB connection failed:', err));
+app.get('/', (req, res) => {
+    res.json({"message": "Hello Crud Node Express"});
+});
+const PORT = process.env.PORT || 8081;
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
+});
+
 
 
