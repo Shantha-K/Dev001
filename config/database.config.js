@@ -3,5 +3,5 @@
 // }
 
 module.exports = {
-    url:  "mongodb://final:shantha1234@13.204.58.168:27017/mydatabase?connectTimeoutMS=10000&serverSelectionTimeoutMS=10000"
+    url:  "mongodb://myuser:mypassword@13.204.58.168:27017/admin"
 }
