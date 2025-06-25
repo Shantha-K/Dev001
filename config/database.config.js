@@ -3,5 +3,5 @@
 // }
 
 module.exports = {
-    url:  "mongodb://final:shantha1234@35.154.247.128/admin"
+    url:  "mongodb://final:shantha1234@35.154.247.128:27017/admin"
 }
