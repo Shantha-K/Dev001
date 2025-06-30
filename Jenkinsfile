@@ -33,7 +33,8 @@ pipeline {
 
         stage('Upload to S3') {
             steps {
-bat '"C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe" s3 cp build-8.zip s3://elasticbeanstalk-ap-south-1-907591395244 /'
+bat '"C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe" s3 cp build-10.zip s3://elasticbeanstalk-ap-south-1-907591395244/'
+
             }
         }
 
