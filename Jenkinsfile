@@ -39,6 +39,26 @@ pipeline {
         stage('Deploy to Elastic Beanstalk') {
             steps {
                 bat "\"C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe\" elasticbeanstalk create-application-version --application-name ${APPLICATION_NAME} --version-label ${env.VERSION_LABEL} --source-bundle S3Bucket=${S3_BUCKET},S3Key=${env.VERSION_LABEL}.zip --region ${AWS_REGION}"
+
+                script {
+                    def ready = false
+                    while(!ready) {
+                        def status = bat(
+                            script: "\"C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe\" elasticbeanstalk describe-environments --environment-names ${ENVIRONMENT_NAME} --query 'Environments[0].Status' --output text --region ${AWS_REGION}",
+                            returnStdout: true
+                        ).trim()
+
+                        echo "Elastic Beanstalk Environment Status: ${status}"
+
+                        if (status == 'Ready') {
+                            ready = true
+                        } else {
+                            echo "Waiting 30 seconds for environment to be Ready..."
+                            sleep 30
+                        }
+                    }
+                }
+
                 bat "\"C:\\Program Files\\Amazon\\AWSCLIV2\\aws.exe\" elasticbeanstalk update-environment --environment-name ${ENVIRONMENT_NAME} --version-label ${env.VERSION_LABEL} --region ${AWS_REGION}"
             }
         }
