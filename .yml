@@ -1,6 +1,6 @@
 version: '3'
 services:
   web:
-    image: my-node-app
+    image: my-node-app-2
     ports:
       - "3001:3001"
