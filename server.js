@@ -23,3 +23,5 @@ app.listen(port, () => {
 });
 const UserRoute = require('./app/routes/User')
 app.use('/user',UserRoute)
+mongoose.connect("mongodb://mongo:27017/mydatabase")
+
