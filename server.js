@@ -24,4 +24,12 @@ app.listen(port, () => {
 const UserRoute = require('./app/routes/User')
 app.use('/user',UserRoute)
 mongoose.connect("mongodb://mongo:27017/mydatabase")
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGO_URI);
+
+const userSchema = new mongoose.Schema({ name: String });
+const User = mongoose.model("User", userSchema);
+
+new User({ name: "Ram" }).save(); // This should create a document
+
 
