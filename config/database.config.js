@@ -3,5 +3,6 @@
 // }
 
 module.exports = {
-    url:  "mongodb://final:shantha@35.154.247.128:27017/admin"
+    // url:  "mongodb://final:shantha@35.154.247.128:27017/admin"
+    url: "mongodb://mongodb:27017/mydatabase"
 }

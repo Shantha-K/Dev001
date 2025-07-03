@@ -1,0 +1,16 @@
+services:
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+
+  web:
+    build: .
+    image: my-node-app-2
+    ports:
+      - "3001:3000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/mydatabase
