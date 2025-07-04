@@ -20,7 +20,7 @@ services:
     depends_on:
       - mongo
     environment:
-      - MONGO_URL=mongodb://admin:shantha1234@mongodb:27017/mydatabase?authSource=admin
+      - MONGO_URL=mongodb://admin:admin123@mongodb:27017/mydatabase?authSource=admin
 
 volumes:
   mongo-data:
