@@ -6,7 +6,7 @@ services:
     container_name: mongodb
     ports:
       - "27017:27017"
-    environment:
+    environment:    
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin123
     volumes:
@@ -16,7 +16,7 @@ services:
     build: .
     image: my-node-app-2
     ports:
-      - "3001:3000"
+      - "4001:4000"
     depends_on:
       - mongo
     environment:
